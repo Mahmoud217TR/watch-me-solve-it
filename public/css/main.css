@@ -53,6 +53,12 @@ body {
   background-color: #F0A500 !important;
 }
 
+.home-container {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+  max-width: none !important;
+}
+
 .feed {
   margin: auto;
 }
@@ -61,6 +67,7 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 8px;
   padding: 10px;
+  margin-bottom: 11px;
 }
 
 .post-header-title {
@@ -85,4 +92,32 @@ body {
 .post-time {
   color: #a3a3a3;
   font-size: xx-small;
+}
+
+.post-hr {
+  margin-top: 0px;
+  border: 0px solid rgba(0, 0, 0, 0.125);
+}
+
+.post-header-tags {
+  padding-left: 4px;
+  padding-bottom: 3px;
+}
+
+.tag {
+  background-color: #F0A500;
+  color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 20px;
+  font-size: x-small;
+  padding: 1px 4px;
+  margin-right: 2px;
+  margin-left: 2px;
+}
+
+.tag:hover {
+  color: #fff;
+  font-weight: bolder;
+  text-decoration: none;
+  box-shadow: 0 0 0 0.2rem rgba(240, 165, 0, 0.5) !important;
 }

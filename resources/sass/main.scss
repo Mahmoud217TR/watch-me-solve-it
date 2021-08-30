@@ -55,6 +55,12 @@ body {
     background-color: $main!important;
 }
 
+.home-container {
+    margin-right: 0!important;
+    margin-left: 0!important;
+    max-width: none!important;
+}
+
 .feed {
     margin: auto;
 }
@@ -63,6 +69,7 @@ body {
     border: 1px solid $borders-color;
     border-radius: 8px;
     padding: 10px;
+    margin-bottom: 11px;
 }
 
 .post-header-title {
@@ -87,4 +94,31 @@ body {
 .post-time {
     color: $light;
     font-size: xx-small;
+}
+.post-hr {
+    margin-top: 0px;
+    border: 0px solid $borders-color;
+}
+
+.post-header-tags {
+    padding-left: 4px;
+    padding-bottom: 3px;
+}
+
+.tag {
+    background-color: $main;
+    color: #fff;
+    border: 1px solid $borders-color;
+    border-radius: 20px;
+    font-size: x-small;
+    padding: 1px 4px;
+    margin-right: 2px;
+    margin-left: 2px;
+}
+
+.tag:hover{
+    color: #fff;
+    font-weight: bolder;
+    text-decoration: none;
+    box-shadow: 0 0 0 0.2rem $foucs-color!important;
 }
