@@ -1,0 +1,90 @@
+@import 'variables';
+
+body {
+    font-family: 'Acme', sans-serif!important;
+}
+
+.navbar {
+    background-color: $main!important;
+    color: $dark;
+    border-radius: 0px 0px 50px 50px;
+}
+
+.card {
+    border-radius: 8px 8px 8px 8px!important;
+}
+
+.card-header {
+    background-color: $main!important;
+    color: $dark;
+    border-radius: 8px 8px 0px 0px!important;
+}
+
+.card-body {
+    border-radius: 0px 0px 8px 8px!important;
+}
+
+.btn-primary {
+    background-color: $main!important;
+    color: $dark;
+    border: solid 1px $light!important;
+}
+
+.btn-primary:focus {
+    box-shadow: 0 0 0 0.2rem $foucs-color!important;
+}
+
+.form-control {
+    color: $dark;
+    border: solid 1px $light!important;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 0.2rem $foucs-color!important;
+}
+
+.dropdown-menu {
+    border-radius: 10px;
+}
+
+.dropdown-item:hover{
+    background-color: $light-main!important;
+}
+
+.dropdown-item:focus{
+    background-color: $main!important;
+}
+
+.feed {
+    margin: auto;
+}
+
+.feed-post {
+    border: 1px solid $borders-color;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.post-header-title {
+    font-size: larger;
+}
+
+.author-image {
+    width: 100%;
+    border: 1px solid $borders-color;
+    border-radius: 30px;
+}
+
+.author-name {
+    color: $main!important;
+    font-size: larger;
+}
+
+.author-name:hover {
+    text-decoration: none;
+}
+
+.post-time {
+    color: $light;
+    font-size: xx-small;
+}

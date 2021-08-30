@@ -1,0 +1,88 @@
+body {
+  font-family: "Acme", sans-serif !important;
+}
+
+.navbar {
+  background-color: #F0A500 !important;
+  color: #1A1C20;
+  border-radius: 0px 0px 50px 50px;
+}
+
+.card {
+  border-radius: 8px 8px 8px 8px !important;
+}
+
+.card-header {
+  background-color: #F0A500 !important;
+  color: #1A1C20;
+  border-radius: 8px 8px 0px 0px !important;
+}
+
+.card-body {
+  border-radius: 0px 0px 8px 8px !important;
+}
+
+.btn-primary {
+  background-color: #F0A500 !important;
+  color: #1A1C20;
+  border: solid 1px #a3a3a3 !important;
+}
+
+.btn-primary:focus {
+  box-shadow: 0 0 0 0.2rem rgba(240, 165, 0, 0.5) !important;
+}
+
+.form-control {
+  color: #1A1C20;
+  border: solid 1px #a3a3a3 !important;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.2rem rgba(240, 165, 0, 0.5) !important;
+}
+
+.dropdown-menu {
+  border-radius: 10px;
+}
+
+.dropdown-item:hover {
+  background-color: #ebb236 !important;
+}
+
+.dropdown-item:focus {
+  background-color: #F0A500 !important;
+}
+
+.feed {
+  margin: auto;
+}
+
+.feed-post {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.post-header-title {
+  font-size: larger;
+}
+
+.author-image {
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 30px;
+}
+
+.author-name {
+  color: #F0A500 !important;
+  font-size: larger;
+}
+
+.author-name:hover {
+  text-decoration: none;
+}
+
+.post-time {
+  color: #a3a3a3;
+  font-size: xx-small;
+}
