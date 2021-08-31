@@ -35,12 +35,8 @@
         </div>
         <div class="col-7">
             <div class="feed">
-                <post-component post-id = 1
-                ></post-component>
-                <post-component auth-src="{{ asset('img/admin.png') }}" auth-name = "Author Name" post-time ="30-Aug-2021 6:00PM"
-                                post-title = "This is a longer longer longer post title for testing only"
-                                post-text = "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt illo repellat exercitationem doloremque sapiente porro aliquam repellendus placeat asperiores impedit commodi, quas voluptatum rem praesentium blanditiis saepe soluta aspernatur ratione a? Consequuntur cum eos facere obcaecati rerum iste vel! Minima."
-                ></post-component>
+                <post-component post-id = 1></post-component>
+                <post-component post-id = 2></post-component>
             </div>
         </div>
     </div>

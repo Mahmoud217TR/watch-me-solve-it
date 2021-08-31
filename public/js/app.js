@@ -5090,7 +5090,9 @@ __webpack_require__.r(__webpack_exports__);
       postTags: [],
       postTitle: "No Title Available",
       postText: "No Text Available",
-      attachments: []
+      attachments: [],
+      carID: "carousel",
+      carTarget: "#carousel"
     };
   },
   methods: {
@@ -5137,6 +5139,8 @@ __webpack_require__.r(__webpack_exports__);
         type: 'file',
         url: "http://127.0.0.1:8000/file/2"
       }];
+      this.carID = 'carousel' + this.postId;
+      this.carTarget = '#' + this.carID;
     }
   }
 });
@@ -41435,14 +41439,14 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _c("hr", { staticClass: "post-hr" }),
-      _vm._v(" "),
-      _c("div", { staticClass: "post-header-title" }, [
-        _vm._v("\n            " + _vm._s(_vm.postTitle) + "\n        ")
-      ])
+      _c("hr", { staticClass: "post-hr" })
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "post-content row justify-content-center" }, [
+      _c("div", { staticClass: "post-header-title mb-2" }, [
+        _vm._v("\n            " + _vm._s(_vm.postTitle) + "\n        ")
+      ]),
+      _vm._v(" "),
       _c("p", [_vm._v("\n            " + _vm._s(_vm.postText) + "\n        ")]),
       _vm._v(" "),
       _vm.attachments.length > 0
@@ -41451,10 +41455,7 @@ var render = function() {
               "div",
               {
                 staticClass: "carousel slide",
-                attrs: {
-                  id: "carouselExampleCaptions",
-                  "data-ride": "carousel"
-                }
+                attrs: { id: _vm.carID, "data-ride": "carousel" }
               },
               [
                 _c(
@@ -41465,7 +41466,7 @@ var render = function() {
                       key: a.id,
                       class: { active: index == 0 },
                       attrs: {
-                        "data-target": "#carouselExampleCaptions",
+                        "data-target": _vm.carTarget,
                         "data-slide-to": index
                       }
                     })
@@ -41514,9 +41515,45 @@ var render = function() {
                   0
                 ),
                 _vm._v(" "),
-                _vm._m(0),
+                _c(
+                  "a",
+                  {
+                    staticClass: "carousel-control-prev",
+                    attrs: {
+                      href: _vm.carTarget,
+                      role: "button",
+                      "data-slide": "prev"
+                    }
+                  },
+                  [
+                    _c("span", {
+                      staticClass: "carousel-control-prev-icon",
+                      attrs: { "aria-hidden": "true" }
+                    }),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "sr-only" }, [_vm._v("Previous")])
+                  ]
+                ),
                 _vm._v(" "),
-                _vm._m(1)
+                _c(
+                  "a",
+                  {
+                    staticClass: "carousel-control-next",
+                    attrs: {
+                      href: _vm.carTarget,
+                      role: "button",
+                      "data-slide": "next"
+                    }
+                  },
+                  [
+                    _c("span", {
+                      staticClass: "carousel-control-next-icon",
+                      attrs: { "aria-hidden": "true" }
+                    }),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "sr-only" }, [_vm._v("Next")])
+                  ]
+                )
               ]
             )
           ])
@@ -41524,56 +41561,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      {
-        staticClass: "carousel-control-prev",
-        attrs: {
-          href: "#carouselExampleCaptions",
-          role: "button",
-          "data-slide": "prev"
-        }
-      },
-      [
-        _c("span", {
-          staticClass: "carousel-control-prev-icon",
-          attrs: { "aria-hidden": "true" }
-        }),
-        _vm._v(" "),
-        _c("span", { staticClass: "sr-only" }, [_vm._v("Previous")])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      {
-        staticClass: "carousel-control-next",
-        attrs: {
-          href: "#carouselExampleCaptions",
-          role: "button",
-          "data-slide": "next"
-        }
-      },
-      [
-        _c("span", {
-          staticClass: "carousel-control-next-icon",
-          attrs: { "aria-hidden": "true" }
-        }),
-        _vm._v(" "),
-        _c("span", { staticClass: "sr-only" }, [_vm._v("Next")])
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

@@ -1,9 +1,11 @@
 body {
   font-family: "Acme", sans-serif !important;
+  background-color: #F1F1F1 !important;
+  color: #1A1C20;
 }
 
 .navbar {
-  background-color: #F0A500 !important;
+  background-color: #FFB91E !important;
   color: #1A1C20;
   border-radius: 0px 0px 50px 0px;
 }
@@ -13,7 +15,7 @@ body {
 }
 
 .card-header {
-  background-color: #F0A500 !important;
+  background-color: #FFB91E !important;
   color: #1A1C20;
   border-radius: 8px 8px 0px 0px !important;
 }
@@ -23,7 +25,7 @@ body {
 }
 
 .btn-primary {
-  background-color: #F0A500 !important;
+  background-color: #FFB91E !important;
   color: #1A1C20;
   border: solid 1px #a3a3a3 !important;
 }
@@ -50,7 +52,7 @@ body {
 }
 
 .dropdown-item:focus {
-  background-color: #F0A500 !important;
+  background-color: #FFB91E !important;
 }
 
 .home-container {
@@ -66,6 +68,7 @@ body {
 .feed-post {
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 8px;
+  background-color: #fff;
   padding: 10px;
   margin-bottom: 11px;
 }
@@ -82,7 +85,7 @@ body {
 }
 
 .author-name {
-  color: #F0A500 !important;
+  color: #FFB91E !important;
   font-size: larger;
 }
 
@@ -105,7 +108,7 @@ body {
 }
 
 .tag {
-  background-color: #F0A500;
+  background-color: #FFB91E;
   color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 20px;
@@ -121,6 +124,10 @@ body {
   font-size: small;
   text-decoration: none;
   box-shadow: 0 0 0 0.2rem rgba(240, 165, 0, 0.5) !important;
+}
+
+.post-content {
+  padding: 10px;
 }
 
 .attachments {
@@ -152,7 +159,7 @@ body {
   filter: invert(100%);
 }
 
-#carouselExampleCaptions li {
+.carousel-indicators li {
   filter: invert(100%);
 }
 
@@ -171,8 +178,8 @@ body {
      object-fit: fill;
   top: 2px;
   left: 10px;
-  border: 8px solid #F0A500;
-  background-color: #F0A500;
+  border: 8px solid #FFB91E;
+  background-color: #FFB91E;
   border-radius: 50px;
 }
 
@@ -191,19 +198,19 @@ body {
 }
 
 .navlist a {
-  color: #FFF !important;
+  color: #fff !important;
   font-weight: bold;
 }
 
 .navlist a:hover {
-  color: #FFF !important;
+  color: #fff !important;
   font-size: x-large;
   text-decoration: none;
   font-weight: bold;
 }
 
 .nav-active a {
-  color: #FFF !important;
+  color: #fff !important;
   text-decoration: underline;
   font-weight: bold;
 }

@@ -22,23 +22,23 @@
             <!-- Tags -->
             
             <hr class="post-hr">
-            <!-- Title -->
-            <div class="post-header-title">
-                {{ postTitle }}
-            </div>
 
         </div>
         <!-- Header End -->
 
         <!-- Body Start -->
         <div class="post-content row justify-content-center">
+            <!-- Title -->
+            <div class="post-header-title mb-2">
+                {{ postTitle }}
+            </div>
             <p>
                 {{ postText }}
             </p>
             <div class="attachments" v-if="attachments.length > 0">
-                <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                <div :id="carID" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleCaptions" v-for="(a,index) in attachments" :key="a.id" :class ='{"active":index == 0}' :data-slide-to="index"></li>   
+                        <li :data-target="carTarget" v-for="(a,index) in attachments" :key="a.id" :class ='{"active":index == 0}' :data-slide-to="index"></li>   
                     </ol>
                     <div class="carousel-inner post-attachment">
                         <div class="carousel-item" v-for="(a,index) in attachments" :key="a.id" :class ='{"active":index == 0}' >
@@ -50,11 +50,11 @@
                             </a>
                         </div>
                     </div>
-                    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                    <a class="carousel-control-prev" :href="carTarget" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="sr-only">Previous</span>
                     </a>
-                    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                    <a class="carousel-control-next" :href="carTarget" role="button" data-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                     </a>
@@ -81,6 +81,8 @@
                 postTitle: "No Title Available",
                 postText: "No Text Available",
                 attachments: [],
+                carID: "carousel",
+                carTarget: "#carousel"
             }
         },
         methods: {
@@ -101,6 +103,8 @@
                                     {id:4,title:"file 1",type:'file',url:"http://127.0.0.1:8000/file/1"},
                                     {id:5,title:"file 2",type:'file',url:"http://127.0.0.1:8000/file/2"},
                                     ]
+                this.carID = 'carousel'+this.postId
+                this.carTarget = '#'+this.carID
             },
         },
     }

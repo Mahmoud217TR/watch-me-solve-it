@@ -2,6 +2,8 @@
 
 body {
     font-family: 'Acme', sans-serif!important;
+    background-color: $bg-color!important;
+    color: $dark;
 }
 
 .navbar {
@@ -68,6 +70,7 @@ body {
 .feed-post {
     border: 1px solid $borders-color;
     border-radius: 8px;
+    background-color: $strong-light;
     padding: 10px;
     margin-bottom: 11px;
 }
@@ -107,7 +110,7 @@ body {
 
 .tag {
     background-color: $main;
-    color: #fff;
+    color: $strong-light;
     border: 1px solid $borders-color;
     border-radius: 20px;
     font-size: x-small;
@@ -117,11 +120,15 @@ body {
 }
 
 .tag:hover{
-    color: #fff;
+    color: $strong-light;
     font-weight: bolder;
     font-size: small;
     text-decoration: none;
     box-shadow: 0 0 0 0.2rem $foucs-color!important;
+}
+
+.post-content{
+    padding: 10px;
 }
 
 .attachments {
@@ -152,7 +159,7 @@ body {
     filter: invert(100%);
 }
 
-#carouselExampleCaptions li{
+.carousel-indicators li{
     filter: invert(100%);
 }
 
@@ -190,25 +197,25 @@ body {
 }
 
 .navlist a{
-    color: #FFF!important;
+    color: $strong-light!important;
     font-weight: bold;
 }
 
 .navlist a:hover{
-    color: #FFF!important;
+    color: $strong-light!important;
     font-size: x-large;
     text-decoration: none;
     font-weight: bold;
 }
 
 .nav-active a{
-    color: #FFF!important;
+    color: $strong-light!important;
     text-decoration: underline;
     font-weight: bold;
 }
 
 .nav-link{
-    color: #fff!important;
+    color: $strong-light!important;
     font-weight: bolder;
 }
 
@@ -246,7 +253,7 @@ body {
 .task-counter{
     font-size: small;
     margin-top: 2px;
-    background-color: #fff;
+    background-color: $strong-light;
     padding: 4px;
     border-radius: 5px;
 }
