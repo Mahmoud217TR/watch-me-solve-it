@@ -30,19 +30,27 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light shadow-sm">
+            <a class="navbar-brand" href="{{ url('/') }}">
+                <img class ="websiteLogo" src="{{ asset('img/WSMI.svg') }}">
+                <span>{{ config('app.name', 'Laravel') }}</span>
+            </a>
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
+
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
+                    
+                    <ol class="navlist navbar-nav row offset-3 align-items-center">
+                        <li class="col @if(Route::current()->getName() == 'home')nav-active @endif"><a href="#">Home</a></li>
+                        <li class="col"><a href="#">Tasks</a></li>
+                        <li class="col"><a href="#">Profile</a></li>
+                        <li class="col"><a href="#">About</a></li>
+                    </ol>
+                    
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">

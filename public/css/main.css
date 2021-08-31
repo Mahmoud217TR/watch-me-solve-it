@@ -5,7 +5,7 @@ body {
 .navbar {
   background-color: #F0A500 !important;
   color: #1A1C20;
-  border-radius: 0px 0px 50px 50px;
+  border-radius: 0px 0px 50px 0px;
 }
 
 .card {
@@ -72,6 +72,7 @@ body {
 
 .post-header-title {
   font-size: larger;
+  font-weight: bolder;
 }
 
 .author-image {
@@ -100,7 +101,6 @@ body {
 }
 
 .post-header-tags {
-  padding-left: 4px;
   padding-bottom: 3px;
 }
 
@@ -110,14 +110,144 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 20px;
   font-size: x-small;
-  padding: 1px 4px;
-  margin-right: 2px;
-  margin-left: 2px;
+  padding: 2px 6px;
+  margin-right: 4px;
+  margin-left: 4px;
 }
 
 .tag:hover {
   color: #fff;
   font-weight: bolder;
+  font-size: small;
   text-decoration: none;
   box-shadow: 0 0 0 0.2rem rgba(240, 165, 0, 0.5) !important;
+}
+
+.attachments {
+  width: 50%;
+  border-radius: 10px;
+  color: #1A1C20 !important;
+}
+
+.post-attachment {
+  border-radius: 10px;
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  background-color: rgba(0, 0, 0, 0.125);
+}
+
+.post-attachment img {
+  width: 250px;
+  height: 250px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.attachment-title {
+  color: #1A1C20;
+  font-weight: bold;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+  filter: invert(100%);
+}
+
+#carouselExampleCaptions li {
+  filter: invert(100%);
+}
+
+.carousel-indicators {
+  margin-bottom: 0px !important;
+}
+
+.carousel-caption {
+  padding-bottom: 0px !important;
+}
+
+.websiteLogo {
+  width: 100px;
+  position: absolute;
+  -o-object-fit: fill;
+     object-fit: fill;
+  top: 2px;
+  left: 10px;
+  border: 8px solid #F0A500;
+  background-color: #F0A500;
+  border-radius: 50px;
+}
+
+.navbar-brand {
+  font-weight: bolder;
+  margin-left: 100px;
+}
+
+.navlist {
+  margin-bottom: 0px;
+}
+
+.navlist li {
+  display: inline;
+  padding: 0px 8px;
+}
+
+.navlist a {
+  color: #FFF !important;
+  font-weight: bold;
+}
+
+.navlist a:hover {
+  color: #FFF !important;
+  font-size: x-large;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-active a {
+  color: #FFF !important;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.nav-link {
+  color: #fff !important;
+  font-weight: bolder;
+}
+
+.fit-text {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.task-link {
+  color: #1A1C20;
+}
+
+.task-link:hover {
+  color: #CF7500;
+  text-decoration: none;
+}
+
+.task-menu-header {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 5px 5px 0px 0px;
+  background-color: rgba(0, 0, 0, 0.125);
+  padding-left: 10px;
+}
+
+.task-menu-body {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0px 0px 5px 5px;
+  padding-left: 10px;
+  padding-top: 8px;
+  font-size: small;
+  margin-bottom: 10px;
+}
+
+.task-counter {
+  font-size: small;
+  margin-top: 2px;
+  background-color: #fff;
+  padding: 4px;
+  border-radius: 5px;
 }

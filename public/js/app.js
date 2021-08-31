@@ -5049,10 +5049,95 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['authSrc', 'authName', 'postTime', 'postTitle', 'postText'],
+  props: ['postId'],
   mounted: function mounted() {
     console.log('Component mounted.');
+    this.getPost();
+  },
+  data: function data() {
+    return {
+      authSrc: "http://127.0.0.1:8000/img/admin.png",
+      authName: "No Name Available",
+      postTime: "No Date Available",
+      postTags: [],
+      postTitle: "No Title Available",
+      postText: "No Text Available",
+      attachments: []
+    };
+  },
+  methods: {
+    getPost: function getPost() {
+      console.log("Fetching Post " + this.postId);
+      this.authSrc = "http://127.0.0.1:8000/img/admin.png";
+      this.authName = "Author Name";
+      this.postTime = "30-Aug-2021 6:00PM";
+      this.postTags = [{
+        id: 1,
+        name: 'sorting'
+      }, {
+        id: 2,
+        name: 'C++'
+      }, {
+        id: 3,
+        name: 'math'
+      }];
+      this.postTitle = "This is a long post title for testing only";
+      this.postText = "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt illo repellat exercitationem doloremque sapiente porro aliquam repellendus placeat asperiores impedit commodi, quas voluptatum rem praesentium blanditiis saepe soluta aspernatur ratione a? Consequuntur cum eos facere obcaecati rerum iste vel! Minima.";
+      this.attachments = [{
+        id: 1,
+        title: "photo 1",
+        type: 'img',
+        url: "http://127.0.0.1:8000/img/testImg.gif"
+      }, {
+        id: 2,
+        title: "photo 2",
+        type: 'img',
+        url: "http://127.0.0.1:8000/img/testImg.gif"
+      }, {
+        id: 3,
+        title: "photo 3",
+        type: 'img',
+        url: "http://127.0.0.1:8000/img/testImg.gif"
+      }, {
+        id: 4,
+        title: "file 1",
+        type: 'file',
+        url: "http://127.0.0.1:8000/file/1"
+      }, {
+        id: 5,
+        title: "file 2",
+        type: 'file',
+        url: "http://127.0.0.1:8000/file/2"
+      }];
+    }
   }
 });
 
@@ -41328,10 +41413,27 @@ var render = function() {
           _c("p", { staticClass: "mb-1 ml-1 post-time" }, [
             _vm._v(_vm._s(_vm.postTime))
           ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col" }, [
+          _vm.postTags.length > 0
+            ? _c(
+                "div",
+                { staticClass: "post-header-tags float-right" },
+                _vm._l(_vm.postTags, function(tag, index) {
+                  return index < 6
+                    ? _c("div", { key: tag.id, staticClass: "d-inline " }, [
+                        _c("a", { staticClass: "tag", attrs: { href: "#" } }, [
+                          _vm._v(_vm._s(tag.name))
+                        ])
+                      ])
+                    : _vm._e()
+                }),
+                0
+              )
+            : _vm._e()
         ])
       ]),
-      _vm._v(" "),
-      _vm._m(0),
       _vm._v(" "),
       _c("hr", { staticClass: "post-hr" }),
       _vm._v(" "),
@@ -41340,8 +41442,85 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "post-content" }, [
-      _vm._v("\n        " + _vm._s(_vm.postText) + "\n    ")
+    _c("div", { staticClass: "post-content row justify-content-center" }, [
+      _c("p", [_vm._v("\n            " + _vm._s(_vm.postText) + "\n        ")]),
+      _vm._v(" "),
+      _vm.attachments.length > 0
+        ? _c("div", { staticClass: "attachments" }, [
+            _c(
+              "div",
+              {
+                staticClass: "carousel slide",
+                attrs: {
+                  id: "carouselExampleCaptions",
+                  "data-ride": "carousel"
+                }
+              },
+              [
+                _c(
+                  "ol",
+                  { staticClass: "carousel-indicators" },
+                  _vm._l(_vm.attachments, function(a, index) {
+                    return _c("li", {
+                      key: a.id,
+                      class: { active: index == 0 },
+                      attrs: {
+                        "data-target": "#carouselExampleCaptions",
+                        "data-slide-to": index
+                      }
+                    })
+                  }),
+                  0
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "carousel-inner post-attachment" },
+                  _vm._l(_vm.attachments, function(a, index) {
+                    return _c(
+                      "div",
+                      {
+                        key: a.id,
+                        staticClass: "carousel-item",
+                        class: { active: index == 0 }
+                      },
+                      [
+                        _c("a", { attrs: { href: a.url } }, [
+                          _c("img", {
+                            staticClass: "d-block w-100",
+                            attrs: {
+                              src:
+                                a.type == "img"
+                                  ? a.url
+                                  : "http://127.0.0.1:8000/img/fileImg.png"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticClass: "carousel-caption d-none d-md-block"
+                            },
+                            [
+                              _c("h5", { staticClass: "attachment-title" }, [
+                                _vm._v(_vm._s(a.title))
+                              ])
+                            ]
+                          )
+                        ])
+                      ]
+                    )
+                  }),
+                  0
+                ),
+                _vm._v(" "),
+                _vm._m(0),
+                _vm._v(" "),
+                _vm._m(1)
+              ]
+            )
+          ])
+        : _vm._e()
     ])
   ])
 }
@@ -41350,15 +41529,49 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "post-header-tags" }, [
-      _c("a", { staticClass: "tag", attrs: { href: "#" } }, [
-        _vm._v("\n                sorting \n            ")
-      ]),
-      _vm._v(" "),
-      _c("a", { staticClass: "tag", attrs: { href: "#" } }, [
-        _vm._v("\n                c++ \n            ")
-      ])
-    ])
+    return _c(
+      "a",
+      {
+        staticClass: "carousel-control-prev",
+        attrs: {
+          href: "#carouselExampleCaptions",
+          role: "button",
+          "data-slide": "prev"
+        }
+      },
+      [
+        _c("span", {
+          staticClass: "carousel-control-prev-icon",
+          attrs: { "aria-hidden": "true" }
+        }),
+        _vm._v(" "),
+        _c("span", { staticClass: "sr-only" }, [_vm._v("Previous")])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "carousel-control-next",
+        attrs: {
+          href: "#carouselExampleCaptions",
+          role: "button",
+          "data-slide": "next"
+        }
+      },
+      [
+        _c("span", {
+          staticClass: "carousel-control-next-icon",
+          attrs: { "aria-hidden": "true" }
+        }),
+        _vm._v(" "),
+        _c("span", { staticClass: "sr-only" }, [_vm._v("Next")])
+      ]
+    )
   }
 ]
 render._withStripped = true
