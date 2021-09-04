@@ -1,13 +1,23 @@
 body {
   font-family: "Acme", sans-serif !important;
+  background-image: url("/img/bg.jpg");
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+  background-attachment: fixed;
+  background-size: cover;
   background-color: #F1F1F1 !important;
   color: #1A1C20;
+}
+
+.main-link {
+  color: #FFB91E !important;
 }
 
 .navbar {
   background-color: #FFB91E !important;
   color: #1A1C20;
   border-radius: 0px 0px 50px 0px;
+  box-shadow: 3px 5px 10px #888888 !important;
 }
 
 .card {
@@ -171,16 +181,27 @@ body {
   padding-bottom: 0px !important;
 }
 
+.websiteLogo-container {
+  position: absolute;
+  top: 2px;
+  left: 10px;
+  transform: translate(0, 105%);
+  background-color: #FFB91E;
+  border-radius: 0 0 150px 150px;
+  width: 100px;
+  height: 50px;
+  box-shadow: 3px 5px 10px #888888 !important;
+}
+
 .websiteLogo {
   width: 100px;
   position: absolute;
-  -o-object-fit: fill;
-     object-fit: fill;
   top: 2px;
   left: 10px;
-  border: 8px solid #FFB91E;
-  background-color: #FFB91E;
+  -o-object-fit: fill;
+     object-fit: fill;
   border-radius: 50px;
+  border: 8px solid #FFB91E;
 }
 
 .navbar-brand {
@@ -238,15 +259,18 @@ body {
 .task-menu-header {
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 5px 5px 0px 0px;
-  background-color: rgba(0, 0, 0, 0.125);
+  background-color: #a3a3a3;
   padding-left: 10px;
 }
 
 .task-menu-body {
   border: 1px solid rgba(0, 0, 0, 0.125);
+  background-color: #fff;
   border-radius: 0px 0px 5px 5px;
   padding-left: 10px;
+  padding-right: 10px;
   padding-top: 8px;
+  padding-bottom: 8px;
   font-size: small;
   margin-bottom: 10px;
 }
@@ -257,4 +281,32 @@ body {
   background-color: #fff;
   padding: 4px;
   border-radius: 5px;
+}
+
+.task-table {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.task-tag {
+  background-color: #FFB91E !important;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 30px;
+  color: #fff;
+  border-bottom-color: rgba(0, 0, 0, 0.125) !important;
+}
+
+.task-tag:hover {
+  text-decoration: none !important;
+  color: #fff !important;
+  box-shadow: 0 0 0 0.2rem rgba(240, 165, 0, 0.5) !important;
+}
+
+.a-button {
+  background-color: #FFB91E !important;
+  color: #1A1C20;
+  border: solid 1px #a3a3a3 !important;
+}
+
+.a-button:active {
+  box-shadow: 0 0 0 0.2rem rgba(240, 165, 0, 0.5) !important;
 }

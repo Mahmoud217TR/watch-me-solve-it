@@ -2,14 +2,23 @@
 
 body {
     font-family: 'Acme', sans-serif!important;
+    background-image: url('/img/bg.jpg');
+    backdrop-filter: blur(3px);
+    background-attachment: fixed;
+    background-size: cover;
     background-color: $bg-color!important;
     color: $dark;
+}
+
+.main-link{
+    color: $main!important;
 }
 
 .navbar {
     background-color: $main!important;
     color: $dark;
     border-radius: 0px 0px 50px 0px;
+    box-shadow: 3px 5px 10px #888888!important;
 }
 
 .card {
@@ -170,16 +179,25 @@ body {
 .carousel-caption{
     padding-bottom: 0px!important;
 }
-
+.websiteLogo-container{
+    position: absolute;
+    top: 2px;
+    left: 10px;
+    transform: translate(0, 105%);
+    background-color: $main;
+    border-radius: 0 0 150px 150px;
+    width: 100px;
+    height: 50px;
+    box-shadow: 3px 5px 10px #888888!important;
+}
 .websiteLogo{
     width: 100px;
     position: absolute;
-    object-fit: fill;
     top: 2px;
     left: 10px;
-    border: 8px solid $main;
-    background-color: $main;
+    object-fit: fill;
     border-radius: 50px;
+    border: 8px solid $main;
 }
 
 .navbar-brand{
@@ -237,15 +255,18 @@ body {
 .task-menu-header{
     border: 1px solid $borders-color;
     border-radius: 5px 5px 0px 0px;
-    background-color: $borders-color;
+    background-color: $light;
     padding-left: 10px;
 }
 
 .task-menu-body{
     border: 1px solid $borders-color;
+    background-color: $strong-light;
     border-radius: 0px 0px 5px 5px;
     padding-left: 10px;
+    padding-right: 10px;
     padding-top: 8px;
+    padding-bottom: 8px;
     font-size: small;
     margin-bottom: 10px;
 }
@@ -256,4 +277,32 @@ body {
     background-color: $strong-light;
     padding: 4px;
     border-radius: 5px;
+}
+
+.task-table{
+    border: 1px solid $borders-color;
+}
+
+.task-tag{
+    background-color: $main!important;
+    border: 1px solid $borders-color;
+    border-radius: 30px;
+    color: $strong-light;
+    border-bottom-color: $borders-color!important;
+}
+
+.task-tag:hover{
+    text-decoration: none!important;
+    color: $strong-light!important;
+    box-shadow: 0 0 0 0.2rem $foucs-color!important;
+}
+
+.a-button{
+    background-color: $main!important;
+    color: $dark;
+    border: solid 1px $light!important;
+}
+
+.a-button:active {
+    box-shadow: 0 0 0 0.2rem $foucs-color!important;
 }

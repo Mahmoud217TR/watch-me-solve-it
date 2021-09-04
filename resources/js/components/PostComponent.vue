@@ -67,9 +67,8 @@
 
 <script>
     export default {
-        props:['postId'],
-        mounted() {
-            console.log('Component mounted.')
+        props:['post','author','postAttachments','postTags'],
+        created() {
             this.getPost()
         },
         data() {
@@ -87,22 +86,23 @@
         },
         methods: {
             getPost(){
-                console.log("Fetching Post "+this.postId)
+
+                var author = JSON.parse(this.author)
+                var post = JSON.parse(this.post)
+                var attachments = JSON.parse(this.postAttachments)
+                var tags = JSON.parse(this.postTags)
+
+                // Author Stuff
                 this.authSrc = "http://127.0.0.1:8000/img/admin.png"
-                this.authName = "Author Name"
-                this.postTime ="30-Aug-2021 6:00PM"
-                this.postTags = [{id:1,name:'sorting'},
-                                 {id:2,name:'C++'},
-                                 {id:3,name:'math'},
-                                ]
-                this.postTitle = "This is a long post title for testing only"
-                this.postText = "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt illo repellat exercitationem doloremque sapiente porro aliquam repellendus placeat asperiores impedit commodi, quas voluptatum rem praesentium blanditiis saepe soluta aspernatur ratione a? Consequuntur cum eos facere obcaecati rerum iste vel! Minima."
-                this.attachments = [{id:1,title:"photo 1",type:'img',url:"http://127.0.0.1:8000/img/testImg.gif"},
-                                    {id:2,title:"photo 2",type:'img',url:"http://127.0.0.1:8000/img/testImg.gif"},
-                                    {id:3,title:"photo 3",type:'img',url:"http://127.0.0.1:8000/img/testImg.gif"},
-                                    {id:4,title:"file 1",type:'file',url:"http://127.0.0.1:8000/file/1"},
-                                    {id:5,title:"file 2",type:'file',url:"http://127.0.0.1:8000/file/2"},
-                                    ]
+                this.authName = author['name']
+
+                // Post Stuff
+                var d = new Date(post['created_at'])
+                this.postTime = d.toLocaleDateString('en-GB')+" "+d.toLocaleTimeString('en-US')
+                this.postTitle = post['title']
+                this.postText = post['text']
+                this.postTags = tags            
+                this.attachments = attachments
                 this.carID = 'carousel'+this.postId
                 this.carTarget = '#'+this.carID
             },

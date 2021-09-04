@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Post;
+use App\Models\Task;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $posts = Post::all()->reverse();
+        $tasks = Task::getUnsolved()->reverse();
+        return view('home',['posts'=>$posts,'tasks'=>$tasks]);
     }
 }

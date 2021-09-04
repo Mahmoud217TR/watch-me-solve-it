@@ -29,8 +29,10 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light">
             <a class="navbar-brand" href="{{ url('/') }}">
+                <div class="websiteLogo-container">
+                </div>
                 <img class ="websiteLogo" src="{{ asset('img/WSMI.svg') }}">
                 <span>{{ config('app.name', 'Laravel') }}</span>
             </a>
@@ -45,8 +47,8 @@
                     <!-- Left Side Of Navbar -->
                     
                     <ol class="navlist navbar-nav row offset-3 align-items-center">
-                        <li class="col @if(Route::current()->getName() == 'home')nav-active @endif"><a href="#">Home</a></li>
-                        <li class="col"><a href="#">Tasks</a></li>
+                        <li class="col @if(Route::current()->getName() == 'home')nav-active @endif"><a href="{{ route('home') }}">Home</a></li>
+                        <li class="col"><a href="{{ route('tasks') }}">Tasks</a></li>
                         <li class="col"><a href="#">Profile</a></li>
                         <li class="col"><a href="#">About</a></li>
                     </ol>

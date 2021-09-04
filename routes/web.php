@@ -21,6 +21,12 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
+Route::middleware('auth')->group(function () {
+    Route::get('/tasks', [App\Http\Controllers\TaskController::class, 'index'])->name('tasks');
+    Route::get('/task/{id}', [App\Http\Controllers\TaskController::class, 'view'])->name('tasks.view');
+    
+    // Components Routes
+    Route::get('/get-post/{id}',[App\Http\Controllers\ComponentsController::class, 'getPost']);
+    Route::get('/get-task/{id}',[App\Http\Controllers\ComponentsController::class, 'getTask']);
+});
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
