@@ -46,12 +46,15 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     
+                    @if (auth()->user())
                     <ol class="navlist navbar-nav row offset-3 align-items-center">
                         <li class="col @if(Route::current()->getName() == 'home')nav-active @endif"><a href="{{ route('home') }}">Home</a></li>
-                        <li class="col"><a href="{{ route('tasks') }}">Tasks</a></li>
-                        <li class="col"><a href="#">Profile</a></li>
-                        <li class="col"><a href="#">About</a></li>
+                        <li class="col @if(Route::current()->getName() == 'tasks')nav-active @endif"><a href="{{ route('tasks') }}">Tasks</a></li>
+                        <li class="col @if(Route::current()->getName() == 'profile.show') @can('update',$user->profile)nav-active @endcan @endif"><a href="/profile/{{ auth()->user()->id }}">Profile</a></li>
+                        <li class="col @if(Route::current()->getName() == 'about')nav-active @endif"><a href="#">About</a></li>
                     </ol>
+                        
+                    @endif
                     
 
                     <!-- Right Side Of Navbar -->
@@ -76,6 +79,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="/profile/{{ auth()->user()->id }}/edit"> Edit Profile </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

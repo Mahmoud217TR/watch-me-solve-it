@@ -19,7 +19,7 @@
         <div class="col-7">
             <div class="feed">
                 @foreach ($posts as $post)
-                    <post-component post = '{{ $post }}' author ='{{ $post->getAuthor() }}' post-attachments ='{{ $post->getAttachments() }}' post-tags = '{{ $post->tags }}'></post-component>
+                    <post-component post = '{{ $post }}' author ='{{ $post->getAuthor() }}' post-attachments ='{{ $post->getAttachments() }}' post-tags = '{{ $post->tags }}' @if($post->getAuthor()->picture) pic-start ='/storage/'@else ($post->getAuthor()->picture) pic-start ='{{ asset('img/admin.png') }}' @endif></post-component>
                 @endforeach
             </div>
         </div>

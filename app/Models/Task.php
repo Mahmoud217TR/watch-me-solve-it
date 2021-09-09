@@ -30,4 +30,9 @@ class Task extends Model
         $tasks = Tasker::where('user_id','=',auth()->user()->id)->where('solved','!=',true)->pluck('task_id');
         return Task::whereIn('id',$tasks)->get();
     }
+
+    public static function getSolved(){
+        $tasks = Tasker::where('user_id','=',auth()->user()->id)->where('solved','=',true)->pluck('task_id');
+        return Task::whereIn('id',$tasks)->get();
+    }
 }

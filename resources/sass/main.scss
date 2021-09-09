@@ -10,10 +10,6 @@ body {
     color: $dark;
 }
 
-.main-link{
-    color: $main!important;
-}
-
 .navbar {
     background-color: $main!important;
     color: $dark;
@@ -305,4 +301,52 @@ body {
 
 .a-button:active {
     box-shadow: 0 0 0 0.2rem $foucs-color!important;
+}
+
+.profile-main-view{
+    border: 1px solid $borders-color;
+    border-radius: 8px;
+    background-color: $strong-light;
+    padding: 10px;
+    min-height: 100px;
+}
+
+.profile-secondary-view{
+    border: 1px solid $borders-color;
+    border-radius: 8px;
+    background-color: $strong-light;
+    padding: 10px;
+    min-height: 100px;
+}
+
+.profilepic{
+    width: 80%;
+    margin: auto;
+}
+
+.profilepic img{
+    width: 100%;
+    border: 1px solid $borders-color;
+    border-radius: 30px;
+}
+
+.profile-info{
+    width: 75%;
+    margin: auto;
+}
+
+.info-type{
+    font-weight: bolder;
+}
+
+.info{
+    color: $dark-main;
+}
+
+.profile-edit{
+    border: 1px solid $borders-color;
+    border-radius: 8px;
+    background-color: $strong-light;
+    padding: 10px;
+    min-height: 100px;
 }

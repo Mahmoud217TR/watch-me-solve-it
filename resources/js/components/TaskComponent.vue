@@ -11,7 +11,7 @@
                                 <input class="form-control d-inline" type="number" name="subnum" id="subnum">
                             </td>
                             <td class="col-3">
-                                <button class="btn btn-primary p-1 mt-1">Submit Solution</button>
+                                <button class="btn btn-primary p-1 mt-1" @click='submit'>Submit Solution</button>
                             </td>
                         </tr>
                     </table>
@@ -63,7 +63,8 @@
                                 Status:
                             </td>
                             <td class="col-6 ">
-                                <div class="btn btn-success p-1">Solved</div>
+                                <div class="btn btn-success p-1" v-if="task['solved']">Solved</div>
+                                <div class="btn btn-danger p-1" v-if="!task['solved']">Not Solved</div>
                             </td>
                         </tr>
                         <tr>
@@ -77,7 +78,7 @@
                                 Author Name:
                             </td>
                             <td class="col-6 ">
-                                Mahmoud Mahmoud
+                                {{ author['name'] }}
                             </td>
                         </tr>
                         <tr>
@@ -85,7 +86,13 @@
                                 Time:
                             </td>
                             <td class="col-6 ">
-                                03/09/2021 11:01:09 PM
+                                {{ time }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <hr>
                             </td>
                         </tr>
                         <tr>
@@ -93,7 +100,9 @@
                                 Tags:
                             </td>
                             <td class="col-6 ">
-                                C++,Implementaion
+                                <a class="task-tag p-1" href = "#" v-for="(tag,index) in tags" v-if="index<6" >
+                                    {{ tag.name }}
+                                </a>
                             </td>
                         </tr>
                     </table>
@@ -106,26 +115,36 @@
         mounted() {
             this.init()
         },
-        props:['pTask','pAuthor','pTasker'],
+        props:['pTask','pAuthor','pTasker','pTags'],
         data() {
             return {
                 task: [],
                 author: [],
                 tasker: [],
+                tags: [],
+                time: '',
             }
         },
         methods: {
             init(){
                 var task = JSON.parse(this.pTask)
-                console.log(task)
                 var author = JSON.parse(this.pAuthor)
-                console.log(author)
                 var tasker = JSON.parse(this.pTasker)
+                var tags = JSON.parse(this.pTags)
                 
 
                 this.task = task
                 this.author = author
                 this.tasker = tasker 
+                this.tags = tags
+
+                var d = new Date(task['created_at'])
+                this.time = d.toLocaleDateString('en-GB')+" "+d.toLocaleTimeString('en-US')
+            },
+            submit(){
+                axios.get('https://codeforces.com/api/user.status?handle=Haidar_Kahs&from=1&count=1000').then(response =>{
+                    console.log(response.data)
+                })
             }
         },
     }

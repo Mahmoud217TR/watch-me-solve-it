@@ -5,10 +5,10 @@
         <div class="post-header mb-3">
             <div class="row align-items-center mb-1">
                 <div class="col-1">
-                    <a href="#"><img class="author-image" :src="authSrc" alt="Author Image"></a>
+                    <a :href="authProfile"><img class="author-image" :src="authSrc" alt="Author Image"></a>
                 </div>
                 <div class="col-6 pl-0">
-                    <a class='author-name' href="#">{{ authName }}</a>
+                    <a class='author-name' :href="authProfile">{{ authName }}</a>
                     <p class="mb-1 ml-1 post-time">{{ postTime }}</p>
                 </div>
                 <div class="col">
@@ -67,7 +67,7 @@
 
 <script>
     export default {
-        props:['post','author','postAttachments','postTags'],
+        props:['post','author','postAttachments','postTags','picStart'],
         created() {
             this.getPost()
         },
@@ -75,6 +75,7 @@
             return {
                 authSrc: "http://127.0.0.1:8000/img/admin.png",
                 authName: "No Name Available",
+                authProfile: "#",
                 postTime: "No Date Available",
                 postTags: [],
                 postTitle: "No Title Available",
@@ -93,8 +94,9 @@
                 var tags = JSON.parse(this.postTags)
 
                 // Author Stuff
-                this.authSrc = "http://127.0.0.1:8000/img/admin.png"
+                this.authSrc = this.picStart+author['picture']
                 this.authName = author['name']
+                this.authProfile = '/profile/'+author['id']
 
                 // Post Stuff
                 var d = new Date(post['created_at'])

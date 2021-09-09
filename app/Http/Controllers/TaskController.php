@@ -19,9 +19,9 @@ class TaskController extends Controller
         return view('tasks.tasks',['tasks'=>$tasks]);
     }
 
-    public function view($id)
+    public function show($id)
     {
         $task = Task::find($id);
-        return view('tasks.view',['task'=>$task]);
+        return view('tasks.show',['task'=>$task]);
     }
 }

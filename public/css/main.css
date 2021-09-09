@@ -9,10 +9,6 @@ body {
   color: #1A1C20;
 }
 
-.main-link {
-  color: #FFB91E !important;
-}
-
 .navbar {
   background-color: #FFB91E !important;
   color: #1A1C20;
@@ -309,4 +305,52 @@ body {
 
 .a-button:active {
   box-shadow: 0 0 0 0.2rem rgba(240, 165, 0, 0.5) !important;
+}
+
+.profile-main-view {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 8px;
+  background-color: #fff;
+  padding: 10px;
+  min-height: 100px;
+}
+
+.profile-secondary-view {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 8px;
+  background-color: #fff;
+  padding: 10px;
+  min-height: 100px;
+}
+
+.profilepic {
+  width: 80%;
+  margin: auto;
+}
+
+.profilepic img {
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 30px;
+}
+
+.profile-info {
+  width: 75%;
+  margin: auto;
+}
+
+.info-type {
+  font-weight: bolder;
+}
+
+.info {
+  color: #CF7500;
+}
+
+.profile-edit {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 8px;
+  background-color: #fff;
+  padding: 10px;
+  min-height: 100px;
 }

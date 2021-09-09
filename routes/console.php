@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Task;
 use App\Models\Post;
 use App\Models\Tag;
+use App\Models\Profile;
 use App\Models\MediaLink;
 use App\Models\Tasker;
 
@@ -34,6 +35,7 @@ Artisan::command('init', function () {
     $user->password = Hash::make('123456789');
     $user->admin = true;
     $user->save();
+    $user->profile()->save(new Profile);
 
     // Task
     $task = new Task;
@@ -96,4 +98,3 @@ Artisan::command('init', function () {
 
     
 })->purpose('Initilizing');
-

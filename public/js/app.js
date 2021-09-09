@@ -5188,7 +5188,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ['post', 'author', 'postAttachments', 'postTags'],
+  props: ['post', 'author', 'postAttachments', 'postTags', 'picStart'],
   created: function created() {
     this.getPost();
   },
@@ -5196,6 +5196,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       authSrc: "http://127.0.0.1:8000/img/admin.png",
       authName: "No Name Available",
+      authProfile: "#",
       postTime: "No Date Available",
       postTags: [],
       postTitle: "No Title Available",
@@ -5212,8 +5213,9 @@ __webpack_require__.r(__webpack_exports__);
       var attachments = JSON.parse(this.postAttachments);
       var tags = JSON.parse(this.postTags); // Author Stuff
 
-      this.authSrc = "http://127.0.0.1:8000/img/admin.png";
-      this.authName = author['name']; // Post Stuff
+      this.authSrc = this.picStart + author['picture'];
+      this.authName = author['name'];
+      this.authProfile = '/profile/' + author['id']; // Post Stuff
 
       var d = new Date(post['created_at']);
       this.postTime = d.toLocaleDateString('en-GB') + " " + d.toLocaleTimeString('en-US');
@@ -5416,28 +5418,46 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
     this.init();
   },
-  props: ['pTask', 'pAuthor', 'pTasker'],
+  props: ['pTask', 'pAuthor', 'pTasker', 'pTags'],
   data: function data() {
     return {
       task: [],
       author: [],
-      tasker: []
+      tasker: [],
+      tags: [],
+      time: ''
     };
   },
   methods: {
     init: function init() {
       var task = JSON.parse(this.pTask);
-      console.log(task);
       var author = JSON.parse(this.pAuthor);
-      console.log(author);
       var tasker = JSON.parse(this.pTasker);
+      var tags = JSON.parse(this.pTags);
       this.task = task;
       this.author = author;
       this.tasker = tasker;
+      this.tags = tags;
+      var d = new Date(task['created_at']);
+      this.time = d.toLocaleDateString('en-GB') + " " + d.toLocaleTimeString('en-US');
+    },
+    submit: function submit() {
+      axios.get('https://codeforces.com/api/user.status?handle=Haidar_Kahs&from=1&count=1000').then(function (response) {
+        console.log(response.data);
+      });
     }
   }
 });
@@ -42079,7 +42099,7 @@ var render = function() {
     _c("div", { staticClass: "post-header mb-3" }, [
       _c("div", { staticClass: "row align-items-center mb-1" }, [
         _c("div", { staticClass: "col-1" }, [
-          _c("a", { attrs: { href: "#" } }, [
+          _c("a", { attrs: { href: _vm.authProfile } }, [
             _c("img", {
               staticClass: "author-image",
               attrs: { src: _vm.authSrc, alt: "Author Image" }
@@ -42088,9 +42108,11 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "col-6 pl-0" }, [
-          _c("a", { staticClass: "author-name", attrs: { href: "#" } }, [
-            _vm._v(_vm._s(_vm.authName))
-          ]),
+          _c(
+            "a",
+            { staticClass: "author-name", attrs: { href: _vm.authProfile } },
+            [_vm._v(_vm._s(_vm.authName))]
+          ),
           _vm._v(" "),
           _c("p", { staticClass: "mb-1 ml-1 post-time" }, [
             _vm._v(_vm._s(_vm.postTime))
@@ -42329,10 +42351,27 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "card-body" }, [
-      _vm._m(0),
+      _c("table", { staticClass: "table" }, [
+        _c("tr", { staticClass: "form-group row " }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _vm._m(1),
+          _vm._v(" "),
+          _c("td", { staticClass: "col-3" }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-primary p-1 mt-1",
+                on: { click: _vm.submit }
+              },
+              [_vm._v("Submit Solution")]
+            )
+          ])
+        ])
+      ]),
       _vm._v(" "),
       _c("table", [
-        _vm._m(1),
+        _vm._m(2),
         _vm._v(" "),
         _c("tr", [
           _c("td", { staticClass: "col-3" }, [
@@ -42350,7 +42389,7 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _vm._m(2),
+        _vm._m(3),
         _vm._v(" "),
         _c("tr", [
           _c("td", { staticClass: "col-3" }, [
@@ -42387,17 +42426,94 @@ var render = function() {
           ])
         ]),
         _vm._v(" "),
-        _vm._m(3),
-        _vm._v(" "),
         _vm._m(4),
+        _vm._v(" "),
+        _c("tr", [
+          _c("td", { staticClass: "col-3" }, [
+            _vm._v(
+              "\n                            Status:\n                        "
+            )
+          ]),
+          _vm._v(" "),
+          _c("td", { staticClass: "col-6 " }, [
+            _vm.task["solved"]
+              ? _c("div", { staticClass: "btn btn-success p-1" }, [
+                  _vm._v("Solved")
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            !_vm.task["solved"]
+              ? _c("div", { staticClass: "btn btn-danger p-1" }, [
+                  _vm._v("Not Solved")
+                ])
+              : _vm._e()
+          ])
+        ]),
         _vm._v(" "),
         _vm._m(5),
         _vm._v(" "),
+        _c("tr", [
+          _c("td", { staticClass: "col-3" }, [
+            _vm._v(
+              "\n                            Author Name:\n                        "
+            )
+          ]),
+          _vm._v(" "),
+          _c("td", { staticClass: "col-6 " }, [
+            _vm._v(
+              "\n                            " +
+                _vm._s(_vm.author["name"]) +
+                "\n                        "
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("tr", [
+          _c("td", { staticClass: "col-3" }, [
+            _vm._v(
+              "\n                            Time:\n                        "
+            )
+          ]),
+          _vm._v(" "),
+          _c("td", { staticClass: "col-6 " }, [
+            _vm._v(
+              "\n                            " +
+                _vm._s(_vm.time) +
+                "\n                        "
+            )
+          ])
+        ]),
+        _vm._v(" "),
         _vm._m(6),
         _vm._v(" "),
-        _vm._m(7),
-        _vm._v(" "),
-        _vm._m(8)
+        _c("tr", [
+          _c("td", { staticClass: "col-3" }, [
+            _vm._v(
+              "\n                            Tags:\n                        "
+            )
+          ]),
+          _vm._v(" "),
+          _c(
+            "td",
+            { staticClass: "col-6 " },
+            _vm._l(_vm.tags, function(tag, index) {
+              return index < 6
+                ? _c(
+                    "a",
+                    { staticClass: "task-tag p-1", attrs: { href: "#" } },
+                    [
+                      _vm._v(
+                        "\n                                " +
+                          _vm._s(tag.name) +
+                          "\n                            "
+                      )
+                    ]
+                  )
+                : _vm._e()
+            }),
+            0
+          )
+        ])
       ])
     ])
   ])
@@ -42407,25 +42523,19 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("table", { staticClass: "table" }, [
-      _c("tr", { staticClass: "form-group row " }, [
-        _c("td", { staticClass: "col-3 col-form-label pt-4 mb-0" }, [
-          _c("label", { attrs: { for: "subnum" } }, [_vm._v("Submission ID:")])
-        ]),
-        _vm._v(" "),
-        _c("td", { staticClass: "col-6 " }, [
-          _c("input", {
-            staticClass: "form-control d-inline",
-            attrs: { type: "number", name: "subnum", id: "subnum" }
-          })
-        ]),
-        _vm._v(" "),
-        _c("td", { staticClass: "col-3" }, [
-          _c("button", { staticClass: "btn btn-primary p-1 mt-1" }, [
-            _vm._v("Submit Solution")
-          ])
-        ])
-      ])
+    return _c("td", { staticClass: "col-3 col-form-label pt-4 mb-0" }, [
+      _c("label", { attrs: { for: "subnum" } }, [_vm._v("Submission ID:")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", { staticClass: "col-6 " }, [
+      _c("input", {
+        staticClass: "form-control d-inline",
+        attrs: { type: "number", name: "subnum", id: "subnum" }
+      })
     ])
   },
   function() {
@@ -42450,73 +42560,13 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("tr", [
-      _c("td", { staticClass: "col-3" }, [
-        _vm._v(
-          "\n                            Status:\n                        "
-        )
-      ]),
-      _vm._v(" "),
-      _c("td", { staticClass: "col-6 " }, [
-        _c("div", { staticClass: "btn btn-success p-1" }, [_vm._v("Solved")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("tr", [_c("td"), _vm._v(" "), _c("td", [_c("hr")])])
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("tr", [
-      _c("td", { staticClass: "col-3" }, [
-        _vm._v(
-          "\n                            Author Name:\n                        "
-        )
-      ]),
-      _vm._v(" "),
-      _c("td", { staticClass: "col-6 " }, [
-        _vm._v(
-          "\n                            Mahmoud Mahmoud\n                        "
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("tr", [
-      _c("td", { staticClass: "col-3" }, [
-        _vm._v("\n                            Time:\n                        ")
-      ]),
-      _vm._v(" "),
-      _c("td", { staticClass: "col-6 " }, [
-        _vm._v(
-          "\n                            03/09/2021 11:01:09 PM\n                        "
-        )
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("tr", [
-      _c("td", { staticClass: "col-3" }, [
-        _vm._v("\n                            Tags:\n                        ")
-      ]),
-      _vm._v(" "),
-      _c("td", { staticClass: "col-6 " }, [
-        _vm._v(
-          "\n                            C++,Implementaion\n                        "
-        )
-      ])
-    ])
+    return _c("tr", [_c("td"), _vm._v(" "), _c("td", [_c("hr")])])
   }
 ]
 render._withStripped = true
