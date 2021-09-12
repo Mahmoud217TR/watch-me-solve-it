@@ -9,6 +9,12 @@ class Post extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title',
+        'text',
+        'author_id',
+    ];
+
     public function getAuthor(){
         return User::find($this->author_id);
     }

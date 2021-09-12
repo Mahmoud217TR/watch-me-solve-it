@@ -10,6 +10,15 @@ class Task extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title',
+        'description',
+        'difficulty',
+        'url',
+        'site',
+        'author_id',
+    ];
+
     public function getAuthor(){
         return User::find($this->author_id);
     }

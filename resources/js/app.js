@@ -24,6 +24,7 @@ Vue.component('post-component', require('./components/PostComponent.vue').defaul
 Vue.component('short-task-component', require('./components/ShortTaskComponent.vue').default);
 Vue.component('medium-task-component', require('./components/MediumTaskComponent.vue').default);
 Vue.component('task-component', require('./components/TaskComponent.vue').default);
+Vue.component('attachment-component', require('./components/AttachmentComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

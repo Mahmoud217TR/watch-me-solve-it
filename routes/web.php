@@ -13,13 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/about', [App\Http\Controllers\Controller::class, 'about'])->name('about');
+Route::get('/', [App\Http\Controllers\Controller::class, 'welcome'])->name('welcome');
 
 Route::middleware('auth')->group(function () {
 
@@ -31,9 +30,16 @@ Route::middleware('auth')->group(function () {
     // Tasks
     Route::get('/tasks', [App\Http\Controllers\TaskController::class, 'index'])->name('tasks');
     Route::get('/task/{id}', [App\Http\Controllers\TaskController::class, 'show'])->name('tasks.show');
+    Route::post('/task', [App\Http\Controllers\TaskController::class, 'store'])->name('task.store');
+
+    // Posts
+    Route::post('/post', [App\Http\Controllers\PostController::class, 'store'])->name('post.store');
     
     // Components Routes
     Route::get('/get-post/{id}',[App\Http\Controllers\ComponentsController::class, 'getPost']);
     Route::get('/get-task/{id}',[App\Http\Controllers\ComponentsController::class, 'getTask']);
 });
 
+Route::middleware(['auth','admin'])->group(function () {
+    Route::get('/admins-panel', [App\Http\Controllers\AdminsController::class, 'index'])->name('admins.index');
+});

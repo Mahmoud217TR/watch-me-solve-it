@@ -354,3 +354,36 @@ body {
   padding: 10px;
   min-height: 100px;
 }
+
+.about-table {
+  padding: 10px;
+  justify-content: center;
+}
+
+.about-pic {
+  width: 60%;
+  margin: auto;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 30px;
+}
+
+.heading h1 {
+  margin: auto;
+  justify-self: center;
+  display: inline;
+}
+
+.form-group textarea {
+  resize: none;
+  min-height: 150px;
+}
+
+.at input {
+  width: 85%;
+}
+
+.at button {
+  width: 10%;
+  margin-left: 4%;
+  padding: 4px;
+}

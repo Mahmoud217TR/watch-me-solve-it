@@ -42,8 +42,8 @@
                     </ol>
                     <div class="carousel-inner post-attachment">
                         <div class="carousel-item" v-for="(a,index) in attachments" :key="a.id" :class ='{"active":index == 0}' >
-                            <a :href="a.url" >
-                                <img :src="a.type == 'img' ? a.url : 'http://127.0.0.1:8000/img/fileImg.png'" class="d-block w-100" >
+                            <a :href="'/storage/'+a.url" >
+                                <img :src="a.type == 'image' ? '/storage/'+a.url : 'http://127.0.0.1:8000/img/fileImg.png'" class="d-block w-100" >
                                 <div class="carousel-caption d-none d-md-block">
                                     <h5 class='attachment-title'>{{ a.title }}</h5>
                                 </div>
@@ -77,6 +77,7 @@
                 authName: "No Name Available",
                 authProfile: "#",
                 postTime: "No Date Available",
+                postId: 0,
                 postTags: [],
                 postTitle: "No Title Available",
                 postText: "No Text Available",
@@ -101,6 +102,7 @@
                 // Post Stuff
                 var d = new Date(post['created_at'])
                 this.postTime = d.toLocaleDateString('en-GB')+" "+d.toLocaleTimeString('en-US')
+                this.postId = post['id']
                 this.postTitle = post['title']
                 this.postText = post['text']
                 this.postTags = tags            

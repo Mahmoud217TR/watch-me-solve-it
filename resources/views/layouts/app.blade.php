@@ -51,7 +51,7 @@
                         <li class="col @if(Route::current()->getName() == 'home')nav-active @endif"><a href="{{ route('home') }}">Home</a></li>
                         <li class="col @if(Route::current()->getName() == 'tasks')nav-active @endif"><a href="{{ route('tasks') }}">Tasks</a></li>
                         <li class="col @if(Route::current()->getName() == 'profile.show') @can('update',$user->profile)nav-active @endcan @endif"><a href="/profile/{{ auth()->user()->id }}">Profile</a></li>
-                        <li class="col @if(Route::current()->getName() == 'about')nav-active @endif"><a href="#">About</a></li>
+                        <li class="col @if(Route::current()->getName() == 'about')nav-active @endif"><a href="{{ route('about') }}">About</a></li>
                     </ol>
                         
                     @endif
@@ -80,6 +80,7 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="/profile/{{ auth()->user()->id }}/edit"> Edit Profile </a>
+                                    @if(auth()->user()->admin)<a class="dropdown-item" href="{{ route('admins.index') }}"> Admin's Panel </a>@endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
