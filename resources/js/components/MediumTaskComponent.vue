@@ -4,53 +4,58 @@
             {{ title }}
         </div>
         <div class="task-menu-body">
-            <table class="table task-table">
-                <tr>
-                    <td class="col-3">ID:</td>
-                    <td class="col-9">{{ taskId }}</td>
-                </tr>
-                <tr>
-                    <td class="col-3">Description:</td>
-                    <td class="col-9">{{ description }}</td>
-                </tr>
-                <tr>
-                    <td class="col-3">Site:</td>
-                    <td class="col-9">{{ site }}</td>
-                </tr>
-                <tr>
-                    <td class="col-3">URL:</td>
-                    <td class="col-9"><a class="main-link" :href='url' target="_blank">{{ url }}</a></td>
-                </tr>
-                <tr>
-                    <td class="col-3">Tags:</td>
-                    <td class="col-9">
+            <table class="container">
+                <div class ='row'>
+                    <div class="col-md-3 text-center text-md-start py-2">ID:</div>
+                    <div class="col-md-9 text-center text-md-start py-2">{{ taskId }}</div>
+                </div>
+                <div class ='row'>
+                    <div class="col-md-3 text-center text-md-start py-2">Description:</div>
+                    <div class="col-md-9 text-center text-md-start py-2">{{ description }}</div>
+                </div>
+                <div class ='row'>
+                    <div class="col-md-3 text-center text-md-start py-2">Site:</div>
+                    <div class="col-md-9 text-center text-md-start py-2">{{ site }}</div>
+                </div>
+                <div class ='row'>
+                    <div class="col-md-3 text-center text-md-start py-2">URL:</div>
+                    <div class="col-md-9 text-center text-md-start py-2"><a class="main-link" :href='url' target="_blank">{{ url }}</a></div>
+                </div>
+                <div class ='row'>
+                    <div class="col-md-3 text-center text-md-start py-2">Tags:</div>
+                    <div class="col-md-9 text-center text-md-start py-2">
                         <a class="task-tag" href = "#" v-for="(tag,index) in tags" v-if="index<6" >
                             {{ tag.name }}
                         </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-3">Author Name:</td>
-                    <td class="col-9">{{ authorName }}</td>
-                </tr>
-                <tr>
-                    <td class="col-3">Time:</td>
-                    <td class="col-9">{{ time }}</td>
-                </tr>
-                <tr >
-                    <td class="col-3"></td>
-                    <td class="col-3">
+                    </div>
+                </div>
+                <div class ='row'>
+                    <div class="col-md-3 text-center text-md-start py-2">Author Name:</div>
+                    <div class="col-md-9 text-center text-md-start py-2">{{ authorName }}</div>
+                </div>
+                <div class ='row'>
+                    <div class="col-md-3 text-center text-md-start py-2">Time:</div>
+                    <div class="col-md-9 text-center text-md-start py-2">{{ time }}</div>
+                </div>
+                <div class ='row' >
+                    <div class="col-lg-2 offset-lg-3 text-center py-2">
                         <a class="btn btn-primary a-button" :href ="taskVeiw">View</a>
+                    </div>
+                    <div class="col-lg-2 text-center py-2">
                         <a class="btn btn-primary a-button ml-3":href ="taskVeiw">Submit</a>
+                    </div>
+                    <div class="col-lg-2 text-center py-2">
                         <a class="btn btn-primary a-button ml-3" href ="#">Report</a>
-                        <div class="alert alert-success d-inline ml-4 float-right ml-0 mb-0" v-if="solved">
+                    </div>
+                    <div class="col-lg-3 text-center py-2">
+                        <div class="alert alert-success" v-if="solved">
                             Solved
                         </div>
-                        <div class="alert alert-danger d-inline ml-4 float-right ml-0 mb-0" v-if="!solved">
+                        <div class="alert alert-danger" v-if="!solved">
                             Not Solved Yet
                         </div>
-                    </td>
-                </tr>
+                    </div>
+                </div>
             </table>
         </div>
     </div>

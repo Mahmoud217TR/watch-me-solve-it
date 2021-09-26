@@ -30,11 +30,13 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light">
-            <a class="navbar-brand" href="{{ url('/') }}">
-                <div class="websiteLogo-container">
+            <a class="navbar-brand">
+                <div class="row">
+                    <div class="websiteLogo col-md-8">
+                        <img class ="img fluid" src="{{ asset('img/WSMI.svg') }}">
+                    </div>
+                    <span class="col-md-4 text-center">{{ config('app.name', 'Laravel') }}</span>
                 </div>
-                <img class ="websiteLogo" src="{{ asset('img/WSMI.svg') }}">
-                <span>{{ config('app.name', 'Laravel') }}</span>
             </a>
             <div class="container">
 

@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="profile-main-view col-md-4">
+        <div class="profile-main-view col-md-4 my-2">
             <div class="profilepic">
                 @if ($user->picture)
                     <img src="/storage/{{ $user->picture }}" >
@@ -17,7 +17,7 @@
                 <label class="info-type pr-4">Tasks Completed:</label> <label class="info">{{ App\Models\Task::getSolved()->count() }}</label>
             </div>
         </div>
-        <div class="profile-secondary-view col-md-7 offset-1">
+        <div class="profile-secondary-view col-md-7 offset-md-1 my-2">
             @if (App\Models\Task::getSolved()->count() > 0)
                 @foreach (App\Models\Task::getSolved() as $solved)
                     <label>{{ $solved->title }}</label>

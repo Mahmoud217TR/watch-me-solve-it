@@ -5116,6 +5116,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   created: function created() {
     this.init();
@@ -42163,46 +42168,82 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "task-menu-body" }, [
-      _c("table", { staticClass: "table task-table" }, [
-        _c("tr", [
-          _c("td", { staticClass: "col-3" }, [_vm._v("ID:")]),
-          _vm._v(" "),
-          _c("td", { staticClass: "col-9" }, [_vm._v(_vm._s(_vm.taskId))])
-        ]),
-        _vm._v(" "),
-        _c("tr", [
-          _c("td", { staticClass: "col-3" }, [_vm._v("Description:")]),
-          _vm._v(" "),
-          _c("td", { staticClass: "col-9" }, [_vm._v(_vm._s(_vm.description))])
-        ]),
-        _vm._v(" "),
-        _c("tr", [
-          _c("td", { staticClass: "col-3" }, [_vm._v("Site:")]),
-          _vm._v(" "),
-          _c("td", { staticClass: "col-9" }, [_vm._v(_vm._s(_vm.site))])
-        ]),
-        _vm._v(" "),
-        _c("tr", [
-          _c("td", { staticClass: "col-3" }, [_vm._v("URL:")]),
-          _vm._v(" "),
-          _c("td", { staticClass: "col-9" }, [
-            _c(
-              "a",
-              {
-                staticClass: "main-link",
-                attrs: { href: _vm.url, target: "_blank" }
-              },
-              [_vm._v(_vm._s(_vm.url))]
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("tr", [
-          _c("td", { staticClass: "col-3" }, [_vm._v("Tags:")]),
+      _c("table", { staticClass: "container" }, [
+        _c("div", { staticClass: "row" }, [
+          _c(
+            "div",
+            { staticClass: "col-md-3 text-center text-md-start py-2" },
+            [_vm._v("ID:")]
+          ),
           _vm._v(" "),
           _c(
-            "td",
-            { staticClass: "col-9" },
+            "div",
+            { staticClass: "col-md-9 text-center text-md-start py-2" },
+            [_vm._v(_vm._s(_vm.taskId))]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c(
+            "div",
+            { staticClass: "col-md-3 text-center text-md-start py-2" },
+            [_vm._v("Description:")]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "col-md-9 text-center text-md-start py-2" },
+            [_vm._v(_vm._s(_vm.description))]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c(
+            "div",
+            { staticClass: "col-md-3 text-center text-md-start py-2" },
+            [_vm._v("Site:")]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "col-md-9 text-center text-md-start py-2" },
+            [_vm._v(_vm._s(_vm.site))]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c(
+            "div",
+            { staticClass: "col-md-3 text-center text-md-start py-2" },
+            [_vm._v("URL:")]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "col-md-9 text-center text-md-start py-2" },
+            [
+              _c(
+                "a",
+                {
+                  staticClass: "main-link",
+                  attrs: { href: _vm.url, target: "_blank" }
+                },
+                [_vm._v(_vm._s(_vm.url))]
+              )
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c(
+            "div",
+            { staticClass: "col-md-3 text-center text-md-start py-2" },
+            [_vm._v("Tags:")]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "col-md-9 text-center text-md-start py-2" },
             _vm._l(_vm.tags, function(tag, index) {
               return index < 6
                 ? _c("a", { staticClass: "task-tag", attrs: { href: "#" } }, [
@@ -42218,22 +42259,36 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
-        _c("tr", [
-          _c("td", { staticClass: "col-3" }, [_vm._v("Author Name:")]),
+        _c("div", { staticClass: "row" }, [
+          _c(
+            "div",
+            { staticClass: "col-md-3 text-center text-md-start py-2" },
+            [_vm._v("Author Name:")]
+          ),
           _vm._v(" "),
-          _c("td", { staticClass: "col-9" }, [_vm._v(_vm._s(_vm.authorName))])
+          _c(
+            "div",
+            { staticClass: "col-md-9 text-center text-md-start py-2" },
+            [_vm._v(_vm._s(_vm.authorName))]
+          )
         ]),
         _vm._v(" "),
-        _c("tr", [
-          _c("td", { staticClass: "col-3" }, [_vm._v("Time:")]),
+        _c("div", { staticClass: "row" }, [
+          _c(
+            "div",
+            { staticClass: "col-md-3 text-center text-md-start py-2" },
+            [_vm._v("Time:")]
+          ),
           _vm._v(" "),
-          _c("td", { staticClass: "col-9" }, [_vm._v(_vm._s(_vm.time))])
+          _c(
+            "div",
+            { staticClass: "col-md-9 text-center text-md-start py-2" },
+            [_vm._v(_vm._s(_vm.time))]
+          )
         ]),
         _vm._v(" "),
-        _c("tr", [
-          _c("td", { staticClass: "col-3" }),
-          _vm._v(" "),
-          _c("td", { staticClass: "col-3" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-lg-2 offset-lg-3 text-center py-2" }, [
             _c(
               "a",
               {
@@ -42241,8 +42296,10 @@ var render = function() {
                 attrs: { href: _vm.taskVeiw }
               },
               [_vm._v("View")]
-            ),
-            _vm._v(" "),
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-lg-2 text-center py-2" }, [
             _c(
               "a",
               {
@@ -42250,45 +42307,26 @@ var render = function() {
                 attrs: { href: _vm.taskVeiw }
               },
               [_vm._v("Submit")]
-            ),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass: "btn btn-primary a-button ml-3",
-                attrs: { href: "#" }
-              },
-              [_vm._v("Report")]
-            ),
-            _vm._v(" "),
+            )
+          ]),
+          _vm._v(" "),
+          _vm._m(0),
+          _vm._v(" "),
+          _c("div", { staticClass: "col-lg-3 text-center py-2" }, [
             _vm.solved
-              ? _c(
-                  "div",
-                  {
-                    staticClass:
-                      "alert alert-success d-inline ml-4 float-right ml-0 mb-0"
-                  },
-                  [
-                    _vm._v(
-                      "\n                        Solved\n                    "
-                    )
-                  ]
-                )
+              ? _c("div", { staticClass: "alert alert-success" }, [
+                  _vm._v(
+                    "\n                        Solved\n                    "
+                  )
+                ])
               : _vm._e(),
             _vm._v(" "),
             !_vm.solved
-              ? _c(
-                  "div",
-                  {
-                    staticClass:
-                      "alert alert-danger d-inline ml-4 float-right ml-0 mb-0"
-                  },
-                  [
-                    _vm._v(
-                      "\n                        Not Solved Yet\n                    "
-                    )
-                  ]
-                )
+              ? _c("div", { staticClass: "alert alert-danger" }, [
+                  _vm._v(
+                    "\n                        Not Solved Yet\n                    "
+                  )
+                ])
               : _vm._e()
           ])
         ])
@@ -42296,7 +42334,20 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-lg-2 text-center py-2" }, [
+      _c(
+        "a",
+        { staticClass: "btn btn-primary a-button ml-3", attrs: { href: "#" } },
+        [_vm._v("Report")]
+      )
+    ])
+  }
+]
 render._withStripped = true
 
 

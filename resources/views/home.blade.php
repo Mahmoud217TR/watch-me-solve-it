@@ -3,7 +3,7 @@
 @section('content')
 <div class="container home-container">
     <div class="row justify-content-center">
-        <div class="col-3">
+        <div class="col-lg-3 py-2">
             <div class="card">
                 <div class="card-header ">
                     <span>Tasks</span>
@@ -16,7 +16,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-7">
+        <div class="col-lg-7 py-2">
             <div class="feed">
                 @foreach ($posts as $post)
                     <post-component post = '{{ $post }}' author ='{{ $post->getAuthor() }}' post-attachments ='{{ $post->getAttachments() }}' post-tags = '{{ $post->tags }}' @if($post->getAuthor()->picture) pic-start ='/storage/'@else ($post->getAuthor()->picture) pic-start ='{{ asset('img/admin.png') }}' @endif></post-component>

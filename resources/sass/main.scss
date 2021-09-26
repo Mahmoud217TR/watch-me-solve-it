@@ -140,6 +140,9 @@ body {
     width: 50%;
     border-radius: 10px;
     color: $dark!important;
+    @media only screen and (max-width: 992px) {
+        width: 80%;
+    }
 }
 
 .post-attachment {
@@ -175,31 +178,29 @@ body {
 .carousel-caption{
     padding-bottom: 0px!important;
 }
-.websiteLogo-container{
-    position: absolute;
-    top: 2px;
-    left: 10px;
-    transform: translate(0, 105%);
-    background-color: $main;
-    border-radius: 0 0 150px 150px;
-    width: 100px;
-    height: 50px;
-    box-shadow: 3px 5px 10px #888888!important;
-}
-.websiteLogo{
-    width: 100px;
-    position: absolute;
-    top: 2px;
-    left: 10px;
-    object-fit: fill;
-    border-radius: 50px;
-    border: 8px solid $main;
-}
 
 .navbar-brand{
     font-weight: bolder;
-    margin-left: 100px;
 }
+
+.websiteLogo{
+    position: relative;
+    @media only screen and (max-width: 768px) {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.websiteLogo img{
+    position: absolute;
+    box-sizing: border-box;
+    border:.5rem solid #FFB91E;
+    border-radius: 50%;
+    @media only screen and (max-width: 768px) {
+        position: relative;
+    }
+}
+
 
 .navlist {
     margin-bottom: 0px;
@@ -275,9 +276,6 @@ body {
     border-radius: 5px;
 }
 
-.task-table{
-    border: 1px solid $borders-color;
-}
 
 .task-tag{
     background-color: $main!important;

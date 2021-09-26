@@ -141,6 +141,11 @@ body {
   border-radius: 10px;
   color: #1A1C20 !important;
 }
+@media only screen and (max-width: 992px) {
+  .attachments {
+    width: 80%;
+  }
+}
 
 .post-attachment {
   border-radius: 10px;
@@ -177,32 +182,30 @@ body {
   padding-bottom: 0px !important;
 }
 
-.websiteLogo-container {
-  position: absolute;
-  top: 2px;
-  left: 10px;
-  transform: translate(0, 105%);
-  background-color: #FFB91E;
-  border-radius: 0 0 150px 150px;
-  width: 100px;
-  height: 50px;
-  box-shadow: 3px 5px 10px #888888 !important;
+.navbar-brand {
+  font-weight: bolder;
 }
 
 .websiteLogo {
-  width: 100px;
-  position: absolute;
-  top: 2px;
-  left: 10px;
-  -o-object-fit: fill;
-     object-fit: fill;
-  border-radius: 50px;
-  border: 8px solid #FFB91E;
+  position: relative;
+}
+@media only screen and (max-width: 768px) {
+  .websiteLogo {
+    display: flex;
+    justify-content: center;
+  }
 }
 
-.navbar-brand {
-  font-weight: bolder;
-  margin-left: 100px;
+.websiteLogo img {
+  position: absolute;
+  box-sizing: border-box;
+  border: 0.5rem solid #FFB91E;
+  border-radius: 50%;
+}
+@media only screen and (max-width: 768px) {
+  .websiteLogo img {
+    position: relative;
+  }
 }
 
 .navlist {
@@ -277,10 +280,6 @@ body {
   background-color: #fff;
   padding: 4px;
   border-radius: 5px;
-}
-
-.task-table {
-  border: 1px solid rgba(0, 0, 0, 0.125);
 }
 
 .task-tag {
