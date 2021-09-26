@@ -386,3 +386,7 @@ body {
   margin-left: 4%;
   padding: 4px;
 }
+
+.op-low {
+  opacity: 0.25;
+}

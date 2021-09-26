@@ -30,7 +30,7 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light">
-            <a class="navbar-brand">
+            <a class="navbar-brand"  href="{{ url('/') }}">
                 <div class="row">
                     <div class="websiteLogo col-md-8">
                         <img class ="img fluid" src="{{ asset('img/WSMI.svg') }}">
